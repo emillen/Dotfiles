@@ -1,0 +1,11 @@
+name: <%= @args[0] %>
+root: ~/<%= @args[0] %>
+windows:
+  - project:
+      panes:
+        - vim .
+        -  # just bash
+        -  # just bash
+  - extra-terminals:
+      panes:
+        -  # just bash
