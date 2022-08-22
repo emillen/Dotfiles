@@ -486,7 +486,7 @@ else
   let g:airline_symbols.linenr = ''
 endif
 set clipboard=unnamedplus
-
+set noswapfile
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
