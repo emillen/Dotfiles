@@ -153,7 +153,10 @@ set number relativenumber
 " Better command line completion 
 set wildmenu
 
-set mousemodel=popup
+
+" turn off mouse
+set mouse=
+
 set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
