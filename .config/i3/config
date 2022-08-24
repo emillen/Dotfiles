@@ -197,7 +197,7 @@ client.placeholder #EAD49B #1E272B #EAD49B #78824B #78824B
 client.background #1E272B
 
 # Gaps
-gaps inner 10
+gaps inner 4
 gaps outer 4
 
 smart_gaps off
