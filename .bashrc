@@ -119,7 +119,7 @@ fi
 export PATH="$PATH:~/Bin/:~/go/bin"
 export SSLKEYLOGFILE=~/.ssl-key.log
 export EDITOR=/usr/local/bin/nvim
-
+export PYTHONPATH=.:src/
 source <(kubectl completion bash)
 
 alias watch="watch -n 1 "
