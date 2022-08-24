@@ -189,10 +189,10 @@ set titlestring=%F
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 " split resize
-nnoremap <silent> <Leader>+ :exe "resize +5"<CR>
-nnoremap <silent> <Leader>- :exe "resize -5"<CR>
-nnoremap <silent> <Leader>> :exe "vertical resize +10"<CR>
-nnoremap <silent> <Leader>< :exe "vertical resize -10"<CR>
+nnoremap <silent> <leader>j :exe "resize +5"<CR>
+nnoremap <silent> <leader>k :exe "resize -5"<CR>
+nnoremap <silent> <leader>l :exe "vertical resize +10"<CR>
+nnoremap <silent> <leader>hh :exe "vertical resize -10"<CR>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -286,10 +286,6 @@ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
-
-"" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Tabs
 nnoremap <Tab> gt
