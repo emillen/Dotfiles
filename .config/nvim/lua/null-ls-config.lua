@@ -10,5 +10,7 @@ require("null-ls").setup({
 
         require("null-ls").builtins.formatting.prettier,
         require("null-ls").builtins.completion.spell,
+
+        require("null-ls").builtins.formatting.rustfmt
     },
 })
