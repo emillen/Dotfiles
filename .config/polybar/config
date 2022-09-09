@@ -5,7 +5,7 @@ height = 27
 radius = 0
 fixed-center = false
 
-background = #1E272B
+background = #313335
 foreground = #EAD49B
 
 line-size = 3
@@ -44,22 +44,22 @@ wrapping-scroll = false
 pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #1E272B
-label-mode-background = #78824b
+label-mode-foreground = #313335
+label-mode-background = #6a8759
 
 label-focused = %index%
-label-focused-background = #78824b
-label-focused-foreground = #6b7443
+label-focused-background = #cc7832
+label-focused-foreground = #313335
 label-focused-padding = 2
 
 label-unfocused = %index%
-label-unfocused-background = #78824b
-label-unfocused-foreground = #1E272B
+label-unfocused-background = #2b2b2b
+label-unfocused-foreground = #cc7832
 label-unfocused-padding = 2
 
 label-visible = %index%
 label-visible-background = #78824b
-label-visible-foreground = #1E272B
+label-visible-foreground = #313335
 label-visible-padding = 2
 
 label-urgent = %index%
@@ -72,7 +72,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = #1E272B
+format-connected-foreground = #313335
 format-connected-background = #9d6a47
 format-connected-padding = 2
 label-connected = %{A1:gnome-terminal -e nmtui &:} %essid%%{A}
@@ -92,7 +92,7 @@ interface = enp0s3
 interval = 3.0
 
 format-connected-padding = 2
-format-connected-foreground = #1E272B
+format-connected-foreground = #313335
 format-connected-background = #9d6a47
 format-connected-prefix = " "
 format-connected-prefix-foreground = #1E272B
