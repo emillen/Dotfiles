@@ -30,7 +30,6 @@ local on_attach = function(client, bufnr)
 		group = augroup,
 		buffer = bufnr,
 		callback = function()
-			print("yeo")
 			lsp_formatting(bufnr)
 		end,
 	})
