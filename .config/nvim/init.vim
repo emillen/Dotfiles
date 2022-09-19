@@ -278,7 +278,7 @@ augroup vimrc-make-cmake
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
-autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
 
 "set autoread | au CursorHold * checktime | call feedkeys("lh")
 "*****************************************************************************
@@ -294,6 +294,13 @@ nnoremap <silent> <S-t> :tabnew<CR>
 nnoremap <silent> <leader>b <cmd>Telescope buffers<CR>
 nnoremap <silent> <leader>e <cmd>Telescope find_files<CR>
 nnoremap <silent> <leader>f <cmd>Telescope live_grep<CR>
+nnoremap <silent> <leader>f <cmd>Telescope live_grep<CR>
+
+noremap <C-u> <C-u>zz
+noremap <C-d> <C-d>zz
+
+xnoremap <silent> <leader>p "_dP
+
 
 " Disable visualbell
 set noerrorbells visualbell t_vb=
@@ -302,7 +309,6 @@ if has('autocmd')
 endif
 
 noremap YY "+y<CR>
-noremap <leader>p "+gP<CR>
 noremap XX "+x<CR>
 
 "" Close buffer

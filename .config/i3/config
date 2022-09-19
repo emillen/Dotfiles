@@ -1,4 +1,5 @@
 set $mod Mod1
+set $mod2 Mod4
 
 new_window pixel 4
 new_float normal
@@ -102,14 +103,14 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 
 # Move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace $ws1
-bindsym $mod+Ctrl+2 move container to workspace $ws2
-bindsym $mod+Ctrl+3 move container to workspace $ws3
-bindsym $mod+Ctrl+4 move container to workspace $ws4
-bindsym $mod+Ctrl+5 move container to workspace $ws5
-bindsym $mod+Ctrl+6 move container to workspace $ws6
-bindsym $mod+Ctrl+7 move container to workspace $ws7
-bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+Shift+1 move container to workspace $ws1
+bindsym $mod+Ctrl+Shift+2 move container to workspace $ws2
+bindsym $mod+Ctrl+Shift+3 move container to workspace $ws3
+bindsym $mod+Ctrl+Shift+4 move container to workspace $ws4
+bindsym $mod+Ctrl+Shift+5 move container to workspace $ws5
+bindsym $mod+Ctrl+Shift+6 move container to workspace $ws6
+bindsym $mod+Ctrl+Shift+7 move container to workspace $ws7
+bindsym $mod+Ctrl+Shift+8 move container to workspace $ws8
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -173,7 +174,7 @@ mode "mouse" {
 
 	set $slow 15
 	set $quick 100
-	set $fast 200
+	set $fast 300
 
 	# Mouse movement (slow/fine-tuned) -- vim keybindings
 
@@ -266,7 +267,7 @@ exec_always --no-startup-id setxkbmap -option caps:swapescape
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-
+exec_always xbindkeys -f ~/.xbindkeysrc
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/gsd-xsettings
 
