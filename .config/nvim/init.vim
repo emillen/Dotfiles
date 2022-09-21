@@ -197,6 +197,8 @@ nnoremap <silent> <leader>hh :exe "vertical resize -10"<CR>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+noremap <leader>s :%s/<C-r><C-w>//gI<Left><Left><Left>
+
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
 endif
@@ -227,10 +229,6 @@ cnoreabbrev Qall qall
 " set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite,*node_modules/
 nnoremap <silent> <leader>nf :NvimTreeFindFile<CR>
 nnoremap <silent> <leader>nt :NvimTreeToggle<CR>
-
-
-" terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
 
 
 "*****************************************************************************
