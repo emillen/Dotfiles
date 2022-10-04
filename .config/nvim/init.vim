@@ -276,8 +276,6 @@ augroup vimrc-make-cmake
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
-autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-
 "set autoread | au CursorHold * checktime | call feedkeys("lh")
 "*****************************************************************************
 "" Mappings
@@ -351,8 +349,6 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 
 " javascript
 let g:javascript_enable_domhtmlcss = 1
-
-autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 
 " vim-javascript
 augroup vimrc-javascript

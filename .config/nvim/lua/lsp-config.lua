@@ -24,15 +24,25 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-	vim.api.nvim_create_autocmd("BufWritePre", {
+	local autocmdopts = {
 		group = augroup,
 		buffer = bufnr,
 		callback = function()
 			lsp_formatting(bufnr)
 		end,
-	})
+	}
+
+	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+	vim.api.nvim_create_autocmd("BufWritePre", autocmdopts)
+
+	-- Allow us to enable and disable autoformatting
+	vim.api.nvim_create_user_command("DisableLspAutoformat", function()
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+	end, {})
+	vim.api.nvim_create_user_command("EnableLspAutoformat", function()
+		vim.api.nvim_create_autocmd("BufWritePre", autocmdopts)
+	end, {})
+
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -51,6 +61,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "<space>gf", lsp_formatting, bufopts)
+	--vim.keymap.set("n", "<space>gF", vim.api.nvim_com)
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
