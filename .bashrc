@@ -125,7 +125,7 @@ alias kubectl=/snap/bin/kubectl
 alias vim=/usr/local/bin/nvim
 alias ls=exa
 alias grep=rg
-alias cat=bat
+alias cat=batcat
 
 export XDG_CONFIG_HOME=/home/emilen/.config
 . "$HOME/.cargo/env"
