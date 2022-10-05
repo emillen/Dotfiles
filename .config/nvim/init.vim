@@ -198,6 +198,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 noremap <leader>s :%s/<C-r><C-w>//gI<Left><Left><Left>
+vnoremap <leader>s :s/\%V//gI<Left><Left><Left><Left>
 
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
