@@ -122,7 +122,7 @@ alias watch="watch -n 1 "
 alias mctl=microk8s.kubectl
 
 alias kubectl=/snap/bin/kubectl
-alias vim=/usr/local/bin/nvim
+alias vim=/usr/bin/nvim
 alias ls=exa
 alias grep=rg
 alias cat=batcat
