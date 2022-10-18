@@ -261,7 +261,7 @@ exec --no-startup-id redshift -O 5000
 exec --no-startup-id blueman-applet
 
 # set deja-dup for startup
-exec --no-startup-id deja-dup-monitor
+exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 
 # swap caps and escape
 exec_always --no-startup-id setxkbmap -option caps:swapescape
