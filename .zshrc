@@ -72,6 +72,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    aws
     ansible
     git
     docker
@@ -122,3 +123,4 @@ alias ls=exa
 alias grep=rg
 alias cat=batcat
 
+bindkey -v
