@@ -115,7 +115,7 @@ source "$HOME/.cargo/env"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 path+=("$HOME/go/bin")
 export PATH
-export EDITOR="/usr/local/bin/nvim"
+export EDITOR="/usr/bin/nvim"
 export XDG_CONFIG_HOME=/home/emilen/.config
 
 alias vim=/usr/bin/nvim
