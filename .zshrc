@@ -121,6 +121,6 @@ export XDG_CONFIG_HOME=/home/emilen/.config
 alias vim=/usr/bin/nvim
 alias ls=exa
 alias grep=rg
-alias cat=batcat
+alias cat="batcat --theme=darcula"
 
 bindkey -v
