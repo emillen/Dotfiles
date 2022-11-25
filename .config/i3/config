@@ -154,10 +154,10 @@ mode "$mode_system" {
 }
 
 # Resize window (you can also use the mouse for that)
-bindsym Ctrl+h resize shrink width 5 px or 5 ppt
-bindsym Ctrl+j resize grow height 5 px or 5 ppt
-bindsym Ctrl+k resize shrink height 5 px or 5 ppt
-bindsym Ctrl+l resize grow width 5 px or 5 ppt
+bindsym Shift+Ctrl+h resize shrink width 5 px or 5 ppt
+bindsym Shift+Ctrl+j resize grow height 5 px or 5 ppt
+bindsym Shift+Ctrl+k resize shrink height 5 px or 5 ppt
+bindsym Shift+Ctrl+l resize grow width 5 px or 5 ppt
 
 mode "mouse" {
 
