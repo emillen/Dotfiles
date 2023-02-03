@@ -5,8 +5,8 @@ windows:
       layout: main-horizontal
       panes:
         - vim .
-        - fish
-        - fish
+        -  #
+        -  #
   - extra-terminals:
       panes:
-        - fish
+        -  #
