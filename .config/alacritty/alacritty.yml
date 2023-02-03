@@ -444,11 +444,8 @@ colors:
 # Default:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
-
+shell:
+  program: /usr/bin/fish
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
