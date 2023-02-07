@@ -279,7 +279,7 @@ nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
 
-nnoremap <silent> <leader>b <cmd>lua require('telescope').my_buffer()<CR>
+nnoremap <silent> <leader>b <cmd>Telescope buffers<CR>
 nnoremap <silent> <leader>e <cmd>Telescope find_files<CR>
 nnoremap <silent> <leader>f <cmd>Telescope live_grep<CR>
 nnoremap <silent> <leader>f <cmd>Telescope live_grep<CR>
@@ -444,4 +444,5 @@ lua <<EOF
     require('Comment-config')
     require("nvim-tree-config")
     require("nvim-devicons-config")
+    require("telescope-config")
 EOF
