@@ -1,8 +1,9 @@
 set $mod Mod1
 set $mod2 Mod4
 
-new_window pixel 4
 new_float normal
+
+for_window [class=.*] border pixel 4
 
 hide_edge_borders none
 
