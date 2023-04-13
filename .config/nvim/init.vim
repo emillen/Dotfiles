@@ -62,6 +62,8 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
+Plug 'rodjek/vim-puppet'
+
 let g:make = 'gmake'
 if exists('make')
         let g:make = 'make'

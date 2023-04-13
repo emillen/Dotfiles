@@ -14,5 +14,15 @@ require("null-ls").setup({
         require("null-ls").builtins.formatting.rustfmt,
 
         require("null-ls").builtins.formatting.gofmt,
+
+        require("null-ls").builtins.diagnostics.erb_lint,
+
+        require("null-ls").builtins.diagnostics.puppet_lint,
+        require("null-ls").builtins.formatting.puppet_lint,
+
+        require("null-ls").builtins.formatting.rubocop,
+        require("null-ls").builtins.diagnostics.rubocop,
+
+        require("null-ls").builtins.formatting.beautysh,
     },
 })
