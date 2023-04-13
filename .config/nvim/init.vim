@@ -356,6 +356,12 @@ augroup vimrc-svelte
   autocmd FileType svelte setl tabstop=2|setl shiftwidth=2|setl expandtab softtabstop=2
 augroup END
 
+" set bats-files as shell files
+augroup bats
+  au!
+  autocmd BufNewFile,BufRead *bats   set filetype=sh
+augroup END
+
 " vim-yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
