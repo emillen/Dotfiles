@@ -288,6 +288,7 @@ nnoremap <silent> <leader>f <cmd>Telescope live_grep<CR>
 
 noremap <C-u> <C-u>zz
 noremap <C-d> <C-d>zz
+noremap <C-o> <C-o>zz
 
 xnoremap <silent> <leader>p "_dP
 
