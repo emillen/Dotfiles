@@ -8,5 +8,10 @@ require("nvim-tree").setup({
     hijack_unnamed_buffer_when_opening = true,
     git = {
         ignore = false
-    }
+    },
+    update_focused_file = {
+        enable = true,
+        update_root = false,
+        ignore_list = {},
+    },
 })
