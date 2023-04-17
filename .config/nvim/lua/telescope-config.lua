@@ -1,18 +1,26 @@
 local actions = require ("telescope.actions")
 
 require("telescope").setup {
-  pickers = {
-    buffers = {
-      show_all_buffers = true,
-      sort_lastused = true,
-      mappings = {
-        i = {
-          ["<c-d>"] = "delete_buffer",
-        },
-        n = {
-          ["<c-d>"] = "delete_buffer",
+    defaults = {
+          mappings = {
+              i = {
+                ["<C-k>"] = require("telescope.actions").move_selection_previous,
+                ["<C-j>"] = require("telescope.actions").move_selection_next,
+              },
+          }
+    },
+    pickers = {
+        buffers = {
+          show_all_buffers = true,
+          sort_lastused = true,
+          mappings = {
+            i = {
+              ["<c-d>"] = "delete_buffer",
+            },
+            n = {
+              ["<c-d>"] = "delete_buffer",
+            }
+          }
         }
-      }
     }
-  }
 }

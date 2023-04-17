@@ -5,7 +5,7 @@ require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 	hijack_netrw = true,
 	disable_netrw = true,
-	hijack_unnamed_buffer_when_opening = true,
+    hijack_unnamed_buffer_when_opening = true,
     git = {
         ignore = false
     }
