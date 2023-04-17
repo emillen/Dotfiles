@@ -1,5 +1,8 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local telescope = require "telescope.builtin"
+local async = require "plenary.async"
+
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>ge", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -59,7 +62,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+	vim.keymap.set("n", "gr", require('telescope.builtin').lsp_references, bufopts)
 	vim.keymap.set("n", "<space>gf", lsp_formatting, bufopts)
 	--vim.keymap.set("n", "<space>gF", vim.api.nvim_com)
 end
