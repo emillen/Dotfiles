@@ -49,6 +49,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'williamboman/mason.nvim'
@@ -61,6 +62,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'rafamadriz/friendly-snippets'
 
 Plug 'rodjek/vim-puppet'
 
@@ -83,6 +85,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
 "*****************************************************************************
 "*****************************************************************************
 
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 
 call plug#end()
 
