@@ -1,7 +1,5 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local telescope = require "telescope.builtin"
-local async = require "plenary.async"
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>ge", vim.diagnostic.open_float, opts)
@@ -24,7 +22,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	local autocmdopts = {
@@ -62,7 +60,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "gr", require('telescope.builtin').lsp_references, bufopts)
+	vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, bufopts)
 	vim.keymap.set("n", "<space>gf", lsp_formatting, bufopts)
 	--vim.keymap.set("n", "<space>gF", vim.api.nvim_com)
 end
@@ -111,8 +109,8 @@ require("lspconfig")["ruby_ls"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
-    enabledFeatures = { "codeActions" , "definition" },
-    thingies = {},
+	enabledFeatures = { "codeActions", "definition" },
+	thingies = {},
 })
 require("lspconfig")["puppet"].setup({
 	on_attach = on_attach,
@@ -123,4 +121,17 @@ require("lspconfig")["bashls"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
+})
+require("lspconfig")["lua_ls"].setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
+			diagnostics = { globals = { "vim" } },
+		},
+	},
 })
