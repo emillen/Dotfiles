@@ -9,6 +9,13 @@ end
 
 -- KEYBINDINGS
 
+-- split resize
+
+map("n", "<leader>j", ':exe "resize +5"<CR>')
+map("n", "<leader>k", ':exe "resize -5"<CR>')
+map("n", "<leader>l", ':exe "vertical resize +10"<CR>')
+map("n", "<leader>h", ':exe "vertical resize -10"<CR>')
+
 -- center when moving around
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
@@ -80,3 +87,11 @@ map("i", "<expr> <Tab>", "vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      :
 map("s", "<expr> <Tab>", "vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'")
 map("i", "<expr> <S-Tab>", "vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'")
 map("s", "<expr> <S-Tab>", "vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'")
+
+-- GitSigns
+map("n", "gn", "<cmd>lua require('gitsigns').next_hunk()<CR>")
+map("n", "gp", "<cmd>lua require('gitsigns').prev_hunk()<CR>")
+map("n", "<leader>gr", "<cmd>lua require('gitsigns').reset_hunk()<CR>")
+map("n", "<leader>gs", "<cmd>lua require('gitsigns').stage_hunk()<CR>")
+map("n", "<leader>gR", "<cmd>lua require('gitsigns').reset_buffer()<CR>")
+map("n", "<leader>gS", "<cmd>lua require('gitsigns').stage_buffer()<CR>")
