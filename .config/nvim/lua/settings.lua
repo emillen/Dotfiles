@@ -5,6 +5,7 @@ vim.cmd([[colorscheme darcula]])
 local set = vim.opt
 set.termguicolors = true
 set.laststatus = 3
+set.cmdheight = 0
 
 set.encoding = "utf-8"
 set.fileencoding = "utf-8"
