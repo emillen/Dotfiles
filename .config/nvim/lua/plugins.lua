@@ -51,6 +51,7 @@ Plug("nvim-tree/nvim-web-devicons")
 Plug("nvim-tree/nvim-tree.lua")
 Plug("rafamadriz/friendly-snippets")
 
+Plug("christoomey/vim-tmux-navigator")
 Plug("rodjek/vim-puppet")
 
 vim.g.make = "gmake"
