@@ -1,8 +1,10 @@
+local set = vim.opt
+
 vim.g.mapleader = " "
 
 vim.cmd([[colorscheme darcula]])
+vim.cmd([[set termguicolors]])
 
-local set = vim.opt
 set.termguicolors = true
 set.laststatus = 3
 set.cmdheight = 0
@@ -24,9 +26,6 @@ set.expandtab = true
 -- set no highlting
 vim.api.nvim_command("set nohlsearch")
 
--- .ap leader to ,
-vim.g.mapleader = " "
-
 -- Enable hidden buffers
 set.hidden = true
 
@@ -46,32 +45,11 @@ set.wildmenu = true
 -- turn off mouse
 set.mouse = nil
 
-vim.api.nvim_command("set t_Co=256")
-set.guioptions = "egmrti"
-set.gfn = "Monospace 10"
-vim.g.CSApprox_loaded = 1
-
 set.scrolloff = 3
-
--- Status bar
--- set.laststatus=2
-
--- Use modeline overrides
--- set.modeline = true
---
--- set.modelines=10
-set.showmode = false
-
-set.title = true
-set.titleold = "Terminal"
-set.titlestring = "%F"
-
--- set.statusline="%F%m%r%h%w%=(%{&ff}/%Y) (line %l/%L, col %c)"
 
 set.clipboard = "unnamedplus"
 
 set.swapfile = false
-
 set.backup = false
 set.writebackup = false
 
