@@ -45,6 +45,22 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 
+		["<C-d>"] = cmp.mapping(function()
+			if cmp.visible() then
+				cmp.select_next_item({ count = 5 })
+			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+				feedkey("<Plug>(vsnip-jump-next)", "")
+			end
+		end, { "i", "s" }),
+
+		["<C-u>"] = cmp.mapping(function()
+			if cmp.visible() then
+				cmp.select_prev_item({ count = 5 })
+			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+				feedkey("<Plug>(vsnip-jump-prev)", "")
+			end
+		end, { "i", "s" }),
+
 		["<C-Space>"] = cmp.mapping.complete(),
 
 		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
