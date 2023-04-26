@@ -1,8 +1,9 @@
 local vim_plug_exists = vim.fn.expand("~/.vim/autoload/plug.vim")
 local curl_exists = vim.fn.executable("curl")
 
-if not vim.fn.filereadable(vim_plug_exists) then
-	if curl_exists then
+if not (vim.fn.filereadable(vim_plug_exists) == 1) then
+	print("downloading vim-plug")
+	if curl_exists == 1 then
 		vim.fn.system(
 			"curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 		)
