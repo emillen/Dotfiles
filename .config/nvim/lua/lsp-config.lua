@@ -104,6 +104,17 @@ require("lspconfig")["rust_analyzer"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
+	checkOnSave = {
+		allFeatures = true,
+		overrideCommand = {
+			"cargo",
+			"clippy",
+			"--workspace",
+			"--message-format=json",
+			"--all-targets",
+			"--all-features",
+		},
+	},
 })
 require("lspconfig")["ruby_ls"].setup({
 	on_attach = on_attach,
