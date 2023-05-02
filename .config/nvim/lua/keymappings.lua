@@ -62,10 +62,6 @@ vim.cmd("cnoreabbrev Qall qall")
 map("n", "<leader>nf", ":NvimTreeFindFile<CR>")
 map("n", "<leader>nt", ":NvimTreeToggle<CR>")
 
--- toggle between tabs
-map("n", "<Tab>", "gt")
-map("n", "<S-Tab>", "gT")
-
 -- telescope
 map("n", "<leader>b", "<cmd>Telescope buffers<CR>")
 map("n", "<leader>e", "<cmd>Telescope find_files<CR>")
