@@ -9,6 +9,23 @@ end
 
 -- KEYBINDINGS
 
+-- quick fix list
+vim.keymap.set("n", "<C-n>", function()
+	local ok = pcall(vim.cmd, ":silent cnext")
+
+	if not ok then
+		vim.cmd(":silent cfirst")
+	end
+end)
+
+vim.keymap.set("n", "<C-p>", function()
+	local ok = pcall(vim.cmd, ":silent cprevious")
+
+	if not ok then
+		vim.cmd(":silent clast")
+	end
+end)
+
 -- split resize
 
 map("n", "<leader>j", ':exe "resize +5"<CR>')
