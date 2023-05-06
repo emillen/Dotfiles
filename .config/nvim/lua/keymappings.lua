@@ -103,6 +103,10 @@ vim.cmd("smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'    
 vim.cmd("imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'")
 vim.cmd("smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'")
 
+-- Add numbered jumps to the jumplist
+map("n", "k", '(v:count > 5 ? "m\'" . v:count : "") . \'k\'', { expr = true })
+map("n", "j", '(v:count > 5 ? "m\'" . v:count : "") . \'j\'', { expr = true })
+
 -- GitSigns
 map("n", "gn", "<cmd>lua require('gitsigns').next_hunk()<CR>")
 map("n", "gp", "<cmd>lua require('gitsigns').prev_hunk()<CR>")
