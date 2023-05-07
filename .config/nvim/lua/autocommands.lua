@@ -63,6 +63,20 @@ cmd([[
     augroup END
 ]])
 
+-- ansible
+cmd([[
+    augroup vimrc-ansible
+      autocmd!
+      autocmd BufNewFile,BufRead hosts setfiletype yaml.ansible
+      autocmd BufRead,BufNewFile */tasks/*.yml set filetype=yaml.ansible
+      autocmd BufRead,BufNewFile */tasks/*.yaml set filetype=yaml.ansible
+      autocmd BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+      autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
+      autocmd BufRead,BufNewFile */roles/*.yml set filetype=yaml.ansible
+      autocmd BufRead,BufNewFile */roles/*.yaml set filetype=yaml.ansible
+    augroup END
+]])
+
 -- vim-yaml
 cmd([[
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
