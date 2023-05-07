@@ -62,6 +62,9 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, bufopts)
 	vim.keymap.set("n", "<space>gf", lsp_formatting, bufopts)
+	vim.keymap.set("n", "<space>gd", function()
+		require("telescope.builtin").diagnostics({ bufnr = 0 })
+	end, bufopts)
 	--vim.keymap.set("n", "<space>gF", vim.api.nvim_com)
 end
 
@@ -145,4 +148,10 @@ require("lspconfig")["lua_ls"].setup({
 			diagnostics = { globals = { "vim" } },
 		},
 	},
+})
+
+require("lspconfig")["vuels"].setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+	capabilities = capabilities,
 })
