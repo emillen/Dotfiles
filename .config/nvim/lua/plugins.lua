@@ -1,4 +1,4 @@
-local vim_plug_exists = vim.fn.expand("~/.local/share/nvim/site/autoload")
+local vim_plug_exists = vim.fn.expand("~/.local/share/nvim/site/autoload/plug.vim")
 local curl_exists = vim.fn.executable("curl")
 
 if not (vim.fn.filereadable(vim_plug_exists) == 1) then
