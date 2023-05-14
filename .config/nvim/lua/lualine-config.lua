@@ -1,14 +1,14 @@
 local colors = {
-	orange = "#cc7832",
-	green = "#6a8759",
-	yellow = "#ffc66d",
-	purple = "#9876aa",
-	gray = "#323232",
-	black = "#2b2b2b",
-	white = "#c5c8c6",
-	blue = "#6897bb",
+	orange = "#fe8019",
+	green = "#98971a",
+	yellow = "#d79921",
+	purple = "#b16286",
+	gray = "#3c3836",
+	black = "#1d2021",
+	white = "#ebdbb2",
+	blue = "#458588",
 }
-
+-- jag gillar glass
 local theme = {
 	normal = {
 		a = { bg = colors.orange, fg = colors.black, gui = "bold" },

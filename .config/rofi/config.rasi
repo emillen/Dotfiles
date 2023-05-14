@@ -146,4 +146,4 @@ configuration {
   }
 }
 
-@theme "gruvbox-dark-soft"
+@theme "gruvbox-light"

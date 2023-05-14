@@ -88,11 +88,11 @@ require("lspconfig")["gopls"].setup({
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
-require("lspconfig")["yamlls"].setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	capabilities = capabilities,
-})
+-- require("lspconfig")["yamlls"].setup({
+-- 	on_attach = on_attach,
+-- 	flags = lsp_flags,
+-- 	capabilities = capabilities,
+-- })
 require("lspconfig")["marksman"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,

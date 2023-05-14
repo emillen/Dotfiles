@@ -1,35 +1,35 @@
-[bar/i3wmthemer_bar]
+[bar/bar]
 monitor = ${env:MONITOR}
 width = 100%
 height = 20
 radius = 0
 fixed-center = false
 
-background = #313335
-foreground = #EAD49B
+background = #1d2021
+foreground = #ebdbb2
 
 line-size = 3
-line-color =
+# line-color =
 
 border-size = 0
-border-color =
+# border-color =
 
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+# module-margin-left = 1
+# module-margin-right = 2
 
-font-0 = "JetBrainsMono Nerd Font Mono Bold:style=Bold:size=10;2"
-font-1 = "JetBrainsMono Nerd Font Mono Bold:style=Bold:size=10;1"
-font-2 = "JetBrainsMono Nerd Font Mono Bold:style=Bold:size=10;1"
+font-0 = "JetBrainsMono Nerd Font:style=Bold:size=10;2"
+font-1 = "JetBrainsMono Nerd Font:style=Bold:size=10;1"
+font-2 = "JetBrainsMono Nerd Font:style=Bold:size=10;1"
 
 modules-left = i3
-modules-center = date
-modules-right = battery wlan eth powermenu
+modules-center = 
+modules-right = date separator battery separator wlan separator powermenu
 
-tray-position = right 
-;tray-padding =
+tray-position = center 
+# ;tray-padding =
 wm-restack = i3
 override-redirect = false
 
@@ -44,26 +44,26 @@ wrapping-scroll = false
 pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #313335
-label-mode-background = #6a8759
+label-mode-foreground = #ffffff
+label-mode-background = #282828
 
 label-focused = %index%
-label-focused-background = #cc7832
-label-focused-foreground = #313335
+label-focused-background = #d79921
+label-focused-foreground = #1d2021
 label-focused-padding = 2
 
 label-unfocused = %index%
-label-unfocused-background = #2b2b2b
-label-unfocused-foreground = #cc7832
+label-unfocused-background = #282828
+label-unfocused-foreground = #d79921
 label-unfocused-padding = 2
 
 label-visible = %index%
-label-visible-background = #78824b
-label-visible-foreground = #313335
+label-visible-background = #98971a
+label-visible-foreground = #3c3836
 label-visible-padding = 2
 
 label-urgent = %index%
-label-urgent-background = #BA2922
+label-urgent-background = #cc241d
 label-urgent-padding = 2
 
 [module/wlan]
@@ -72,92 +72,56 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = #313335
-format-connected-background = #9d6a47
-format-connected-padding = 2
+format-connected-foreground = #cc241d
 label-connected = %{A1:gnome-terminal -e nmtui &:} %essid%%{A}
+label-connected-foreground = #458588
 
-#format-disconnected =
 
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = #1E272B
-
-[module/eth]
-type = internal/network
-interface = enp0s3
-interval = 3.0
-
-format-connected-padding = 2
-format-connected-foreground = #313335
-format-connected-background = #9d6a47
-format-connected-prefix = " "
-format-connected-prefix-foreground = #1E272B
-label-connected = %local_ip%
-
-format-disconnected =
+ramp-signal-foreground = #b16286
 
 [module/date]
 type = internal/date
 interval = 5
 
-date =
+date = %Y-%m-%d
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
-format-foreground = #1E272B
-format-background = #d99f57
-format-padding = 2
+format-prefix = "  "
+format-foreground = #ebdbb2
 
 label = %date% %time%
 
 [module/battery]
 type = internal/battery
-
-; This is useful in case the battery never reports 100% charge
-; Default: 100
 full-at = 99
-
-; format-low once this charge percentage is reached
-; Default: 10
-; New in version 3.6.0
 low-at = 5
-
-; Use the following command to list batteries and adapters:
-; $ ls -1 /sys/class/power_supply/
 battery = BAT0
 adapter = ADP1
-
-; If an inotify event haven't been reported in this many
-; seconds, manually poll for new values.
-;
-; Needed as a fallback for systems that don't report events
-; on sysfs/procfs.
-;
-; Disable polling by setting the interval to 0.
-;
-; Default: 5
 poll-interval = 5
+
+[module/separator]
+type = custom/text
+content = " | "
+content-foreground = #3c3836
 
 [module/powermenu]
 type = custom/menu
-
 expand-right = true
-
 format-spacing = 1
-
 label-open = 
-label-open-foreground = #9d6a47
+label-open-foreground = #b16286
 label-close =  cancel
-label-close-foreground = #9d6a47
+label-close-foreground = #98971a
 label-separator = |
-label-separator-foreground = #9d6a47
+label-separator-foreground = #fe8019
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1

@@ -16,7 +16,8 @@ end
 local Plug = vim.fn["plug#"]
 vim.call("plug#begin", "~/.vim/plugged")
 
-Plug("doums/darcula")
+Plug("gruvbox-community/gruvbox")
+-- Plug("doums/darcula")
 Plug("machakann/vim-sandwich")
 Plug("nvim-lualine/lualine.nvim")
 Plug("lewis6991/gitsigns.nvim")

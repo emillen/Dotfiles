@@ -2,8 +2,9 @@ local set = vim.opt
 
 vim.g.mapleader = " "
 
-vim.cmd([[colorscheme darcula]])
-vim.cmd([[set termguicolors]])
+vim.cmd("set termguicolors")
+vim.cmd("set background=dark")
+vim.cmd("colorscheme gruvbox")
 
 set.termguicolors = true
 set.laststatus = 3

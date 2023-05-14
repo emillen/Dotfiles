@@ -272,11 +272,11 @@ exec --no-startup-id /usr/lib/gsd-xsettings
 
 
 # Theme colors
-client.focused #9D6A47 #313335 #EAD49B #9D6A47 #9D6A47
-client.focused_inactive #EAD49B #313335 #EAD49B #1E272B #1E272B
-client.unfocused #EAD49B #313335 #EAD49B #1E272B #1E272B
-client.urgent #EAD49B #313335 #EAD49B #78824B #78824B
-client.placeholder #EAD49B #313335 #EAD49B #78824B #78824B
+client.focused          #665c54 #665c54 #ebdbb2 #665c54 #665c54
+client.focused_inactive #1d2021 #1d2021 #ebdbb2 #1d2021 #1d2021
+client.unfocused        #1d2021 #1d2021 #ebdbb2 #1d2021 #1d2021
+client.urgent           #1d2021 #1d2021 #fb4934 #1d2021 #1d2021
+client.placeholder      #1d2021 #1d2021 #ebdbb2 #1d2021 #1d2021
 
 client.background #1E272B
 
