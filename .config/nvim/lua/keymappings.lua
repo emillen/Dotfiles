@@ -66,7 +66,7 @@ map("n", "<leader>nt", ":NvimTreeToggle<CR>")
 map("n", "<leader>b", "<cmd>Telescope buffers<CR>")
 map("n", "<leader>e", "<cmd>Telescope find_files<CR>")
 map("n", "<leader>f", "<cmd>Telescope live_grep<CR>")
-map("n", "<leader>j", "<cmd>Telescope jumplist<CR>")
+map("n", "<leader>gj", "<cmd>Telescope jumplist<CR>")
 map("n", "<leader>gg", "<cmd>Telescope git_files<CR>")
 
 -- add and subtract numbers
