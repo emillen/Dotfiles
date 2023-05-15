@@ -58,8 +58,8 @@ label-unfocused-foreground = #d79921
 label-unfocused-padding = 2
 
 label-visible = %index%
-label-visible-background = #98971a
-label-visible-foreground = #3c3836
+label-visible-background = #282828
+label-visible-foreground = #d79921
 label-visible-padding = 2
 
 label-urgent = %index%
