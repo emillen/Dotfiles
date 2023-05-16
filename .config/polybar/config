@@ -23,9 +23,8 @@ font-2 = "JetBrainsMono Nerd Font:style=Bold:size=10;1"
 
 modules-left = i3
 modules-center = 
-modules-right = date separator battery separator memory separator cpu separator wlan separator wired separator powermenu
+modules-right = date separator battery separator memory separator cpu separator bluetooth separator wlan separator wired separator powermenu
 
-tray-position = center 
 # ;tray-padding =
 wm-restack = i3
 override-redirect = false
@@ -45,23 +44,26 @@ label-mode-foreground = #ffffff
 label-mode-background = #282828
 
 label-focused = %index%
-label-focused-background = #d79921
-label-focused-foreground = #1d2021
-label-focused-padding = 2
+label-focused-background = #282828
+label-focused-foreground = #d79921
+label-focused-padding = 3
 
 label-unfocused = %index%
-label-unfocused-background = #282828
-label-unfocused-foreground = #d79921
-label-unfocused-padding = 2
+label-unfocused-background = #1d2021
+label-unfocused-foreground = #ebdbb2
+label-unfocused-padding = 3
 
 label-visible = %index%
-label-visible-background = #282828
-label-visible-foreground = #d79921
-label-visible-padding = 2
+label-visible-background = #1d2021
+label-visible-foreground = #ebdbb2
+label-visible-padding = 3
 
 label-urgent = %index%
 label-urgent-background = #cc241d
-label-urgent-padding = 2
+label-urgent-padding = 3
+
+label-separator-foreground = #3c3836
+label-separator = |
 
 [module/wired]
 type = internal/network
@@ -113,20 +115,24 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = "  "
-format-foreground = #ebdbb2
+format-prefix = " "
+format-prefix-foreground = #b16286
 
 label = %date% %time%
 
 [module/cpu]
 type = internal/cpu
 interval = 5
-label =  CPU %percentage%%
+label = CPU %percentage%%
+format-prefix = " "
+format-prefix-foreground = #b16286
 
 [module/memory]
 type = internal/memory
 interval = 5
-label =  RAM %gb_used%/%gb_total%
+label = RAM %gb_used%/%gb_total%
+format-prefix = " "
+format-prefix-foreground = #b16286
 
 [module/battery]
 type = internal/battery
@@ -140,8 +146,10 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-format-discharging = <ramp-capacity> <label-discharging>
-format-charging = <animation-charging> <label-charging>
+ramp-capacity-foreground = #b16286
+format-full = <ramp-capacity>  <label-full>
+format-discharging = <ramp-capacity>  <label-discharging>
+format-charging = <animation-charging>  <label-charging>
 label-charging = %percentage%%
 label-discharging = %percentage%%
 animation-charging-0 = 
@@ -149,7 +157,7 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-label-full =   %percentage%% 
+label-full = %percentage%% 
 label-low =  0% 
 
 [module/separator]
@@ -189,6 +197,15 @@ menu-3-0 = log off
 menu-3-0-exec = i3 exit logout
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/bluetooth.sh --list-devices
+format-prefix = " "
+format-prefix-foreground = #b16286
+label =  %output%  
+click-left = i3-msg exec blueman-manager
+
 
 [settings]
 screenchange-reload = true
