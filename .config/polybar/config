@@ -64,7 +64,7 @@ interface = enp2s0f0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected> 
-label-connected =  %{A1:gnome-terminal -e nmtui &:} %essid%%{A}
+label-connected = %local_ip%
 label-connected-foreground = ${colors.blue}
 
 format-disconnected = <label-disconnected>
