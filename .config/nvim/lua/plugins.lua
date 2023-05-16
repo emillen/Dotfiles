@@ -56,6 +56,9 @@ Plug("rafamadriz/friendly-snippets")
 Plug("christoomey/vim-tmux-navigator")
 Plug("rodjek/vim-puppet")
 
+Plug("stevearc/dressing.nvim")
+Plug("ziontee113/icon-picker.nvim")
+
 vim.g.make = "gmake"
 if vim.fn.exists("make") then
 	vim.g.make = "make"
