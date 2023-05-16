@@ -251,7 +251,7 @@ mode "mouse" {
 bindsym $mod+Shift+m mode "mouse"
 
 # Autostart applications
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec_always --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec_always --no-startup-id redshift -P -O 4500
 exec --no-startup-id blueman-applet
@@ -273,9 +273,10 @@ exec_always xbindkeys -f ~/.xbindkeysrc
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/gsd-xsettings
 
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/dead-robot.jpg
 
 # Theme colors
-client.focused          #665c54 #665c54 #ebdbb2 #665c54 #665c54
+client.focused          #1d2021 #1d2021 #b16286 #1d2021 #1d2021
 client.focused_inactive #1d2021 #1d2021 #ebdbb2 #1d2021 #1d2021
 client.unfocused        #1d2021 #1d2021 #ebdbb2 #1d2021 #1d2021
 client.urgent           #1d2021 #1d2021 #fb4934 #1d2021 #1d2021
