@@ -10,6 +10,8 @@ set.termguicolors = true
 set.laststatus = 3
 set.cmdheight = 0
 
+set.cursorline = true
+
 set.encoding = "utf-8"
 set.fileencoding = "utf-8"
 set.fileencodings = "utf-8"
