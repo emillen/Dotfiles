@@ -7,6 +7,7 @@ yellow = #d79921
 green = #98971a
 blue = #458588
 gray = #282828
+red = #cc241d
 
 
 [bar/bar]
@@ -115,40 +116,66 @@ label = %date% %time%
 [module/cpu]
 type = internal/cpu
 interval = 5
+warn-percentage = 95
 label = CPU %percentage%%
+label-warn-foreground = ${colors.red}
+
 format-prefix = " "
 format-prefix-foreground = ${colors.purple}
+
 
 [module/memory]
 type = internal/memory
 interval = 5
-label = RAM %gb_used%/%gb_total%
+label = RAM %percentage_used%%
+label-warn-foreground = ${colors.red}
+warn-percentage = 95
 format-prefix = " "
 format-prefix-foreground = ${colors.purple}
 
 [module/battery]
 type = internal/battery
-full-at = 99
-low-at = 5
+
+full-at = 100
+low-at = 10
+
 poll-interval = 5
+
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.purple}
-format-full = <ramp-capacity>  <label-full>
-format-discharging = <ramp-capacity>  <label-discharging>
-format-charging = <animation-charging>  <label-charging>
-label-charging = %percentage%%
-label-discharging = %percentage%%
+
+
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
+animation-charging-foreground = ${colors.purple}
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-foreground = ${colors.purple}
+
+format-discharging = <animation-discharging>  <label-discharging>
+format-charging = <animation-charging>  <label-charging>
+format-full = <ramp-capacity>  <label-full>
+format-low = <ramp-capacity>  <label-low>
+
+label-discharging = %percentage%%
+label-charging = %percentage%%
 label-full = %percentage%% 
-label-low =  0% 
+label-low = %percentage%%
+
+label-discharging-foreground = ${colors.yellow}
+label-charging-foreground = ${colors.green}
+label-low-foreground = ${colors.red}
 
 [module/separator]
 type = custom/text
