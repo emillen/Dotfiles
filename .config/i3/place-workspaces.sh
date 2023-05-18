@@ -12,13 +12,16 @@ get_displays() {
 
 place_workspaces () {
     local displays="$(get_displays)"
-    local current=1
+    local initial_workspace="$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name' )"
 
+    local current=1
     while read -r display; do
         i3-msg "workspace $current; move workspace to output $display" > /dev/null
         i3-msg "workspace $(($current + 1)); move workspace to output $display" > /dev/null
         local current=$((current + 2))
     done < <(echo "$displays")
+
+    i3-msg "workspace $initial_workspace" > /dev/null
 }
 
 if [[ "$0" == "$BASH_SOURCE" ]]; then
