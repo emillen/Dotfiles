@@ -32,7 +32,7 @@ font-3 = "JetBrainsMono Nerd Font:style=Bold:size=10;1"
 
 modules-left = i3
 modules-center= separator date separator battery separator memory separator cpu separator
-modules-right = separator bluetooth separator wlan separator wired separator powermenu
+modules-right = separator pulseaudio separator bluetooth separator wlan separator wired separator powermenu
 
 wm-restack = i3
 override-redirect = false
@@ -223,3 +223,22 @@ format-prefix-foreground = ${colors.purple}
 format-foreground = ${colors.blue}
 label =  %output%  
 click-left = i3-msg exec blueman-manager
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = true
+interval = 5
+format-volume = <ramp-volume> <label-volume>
+
+label-volume = %percentage%%
+label-volume-foreground = ${colors.blue}
+
+label-muted = ﳌ muted
+label-muted-foreground = ${colors.red}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = ${colors.purple}
+
+click-right = pavucontrol
