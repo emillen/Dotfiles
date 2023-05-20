@@ -281,8 +281,8 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/linux-gruvbox.j
 
 # Theme colors
 client.focused          #504945 #1d2021 #d79921 #1d2021 #504945
-client.focused_inactive #504945 #1d2021 #ebdbb2 #1d2021 #504945
-client.unfocused        #3c3836 #1d2021 #a89984 #1d2021 #3c3836
+client.focused_inactive #504945 #1d2021 #ebdbb2 #1d2021 #282828
+client.unfocused        #3c3836 #1d2021 #a89984 #1d2021 #282828
 client.urgent           #1d2021 #1d2021 #fb4934 #1d2021 #1d2021
 client.placeholder      #1d2021 #1d2021 #a89984 #1d2021 #1d2021
 client.background #1E272B
