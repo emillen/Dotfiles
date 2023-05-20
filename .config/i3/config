@@ -1,6 +1,9 @@
 set $mod Mod1
 set $mod2 Mod4
 
+# add some space in begginging of titles
+for_window [class=".*"] title_format " %title"
+
 # fonts
 font pango:JetBrainsMono Nerd Font Mono Regular 10
 
@@ -277,11 +280,11 @@ exec --no-startup-id /usr/lib/gsd-xsettings
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/dead-robot.jpg
 
 # Theme colors
-client.focused          #3c3836 #1d2021 #d79921 #1d2021 #584945
-client.focused_inactive #3c3836 #1d2021 #ebdbb2 #1d2021 #1d2021
-client.unfocused        #1d2021 #1d2021 #ebdbb2 #1d2021 #1d2021
+client.focused          #504945 #1d2021 #d79921 #1d2021 #504945
+client.focused_inactive #504945 #1d2021 #ebdbb2 #1d2021 #504945
+client.unfocused        #3c3836 #1d2021 #a89984 #1d2021 #3c3836
 client.urgent           #1d2021 #1d2021 #fb4934 #1d2021 #1d2021
-client.placeholder      #1d2021 #1d2021 #ebdbb2 #1d2021 #1d2021
+client.placeholder      #1d2021 #1d2021 #a89984 #1d2021 #1d2021
 client.background #1E272B
 
 # inner gaps
