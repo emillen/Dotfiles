@@ -277,7 +277,7 @@ exec_always xbindkeys -f ~/.xbindkeysrc
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/gsd-xsettings
 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/dead-robot.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/linux-gruvbox.jpg
 
 # Theme colors
 client.focused          #504945 #1d2021 #d79921 #1d2021 #504945
