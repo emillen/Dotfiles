@@ -259,7 +259,7 @@ exec_always --no-startup-id picom -b  -D 8 -i 0.95 --inactive-dim 0.1 --active-o
 exec --no-startup-id nm-applet
 exec_always --no-startup-id redshift -P -O 4500
 exec --no-startup-id blueman-applet
-exec_always --no-startup-id greenclip daemon
+exec --no-startup-id greenclip daemon
 
 
 # set deja-dup for startup
@@ -273,7 +273,7 @@ exec_always --no-startup-id setxkbmap -option caps:swapescape
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-exec_always xbindkeys -f ~/.xbindkeysrc
+exec xbindkeys -f ~/.xbindkeysrc
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/gsd-xsettings
 
