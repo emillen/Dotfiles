@@ -30,9 +30,9 @@ font-1 = "JetBrainsMono Nerd Font:style=Bold:size=10;1"
 font-2 = "JetBrainsMono Nerd Font:style=Bold:size=10;1"
 font-3 = "JetBrainsMono Nerd Font:style=Bold:size=10;1"
 
-modules-left = linux separator i3 separator
+modules-left = separator linux separator i3 separator
 modules-center= separator date separator battery separator memory separator cpu separator
-modules-right = separator pulseaudio separator bluetooth separator wlan separator wired separator powermenu
+modules-right = flameshot separator pulseaudio separator bluetooth separator wlan separator wired separator powermenu
 
 wm-restack = i3
 override-redirect = false
@@ -183,11 +183,17 @@ content-foreground = ${colors.separator}
 
 [module/linux]
 type = custom/text
-content = ""
+content = " "
 click-left = "rofi -show drun -modi drun -location 1 -yoffset 25"
 
 content-padding = 3
 content-foreground = ${colors.green}
+
+[module/flameshot]
+type = custom/text
+content = "  "
+click-left = "flameshot gui"
+content-foreground = ${colors.purple} 
 
 [module/powermenu]
 type = custom/menu
