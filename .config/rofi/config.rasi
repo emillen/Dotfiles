@@ -1,6 +1,7 @@
 configuration {
     kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
     kb-row-down: "Down,Control+j";
+    terminal: "alacritty";
 
     // just to make rofi shut up
     kb-accept-entry: "Control+m,Return,KP_Enter";
