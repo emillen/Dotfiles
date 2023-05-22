@@ -1,3 +1,10 @@
-configuration {}
+configuration {
+    kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+    kb-row-down: "Down,Control+j";
+
+    // just to make rofi shut up
+    kb-accept-entry: "Control+m,Return,KP_Enter";
+    kb-remove-to-eol: "Control+Shift+e";
+}
 
 @theme "gruvbox-dark"
