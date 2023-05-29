@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # Compare two displays, return 0 if they should be swapped
 comp_displays() {
     local left="$1"
@@ -19,27 +21,28 @@ comp_displays() {
     local right_y_max="$((right_y_pos + right_y_size))"
     local right_x_max="$((right_x_pos + right_x_size))"
 
-    # If is fully to the left
-    if [[ "$left_x_max" -le "$right_x_pos" ]]; then
-        return 1
+    # Swap if is fully to the left
+    if [[ "$right_x_pos" -gt "$left_x_max" ]]; then
+        return 0
     fi
 
-    # If is fully below below
-    if [[ "$left_y_max" -le "$right_y_pos" ]]; then
-        return 1
+    # Swap if is fully below below
+    if [[ "$right_y_pos" -gt "$left_y_max" ]]; then
+        return 0
     fi
 
-    # If left hand side is more to the left
-    if [[ "$left_x_pos" -le "$right_x_pos" ]]; then
-        return 1
+    # Swap if left hand side is more to the left
+    if [[ "$left_x_pos" -gt "$right_x_pos" ]]; then
+        return 0
     fi
 
-    # If top is more to the top
-    if [[ "$left_y_pos" -le "$right_y_pos" ]]; then
-        return 1
+    # Swap if top is more to the top
+    if [[ "$left_y_pos" -gt "$right_y_pos" ]]; then
+        return 0
     fi
-
-    return 0
+    
+    # Dont swap
+    return 1
 }
 
 # Sort the displays
