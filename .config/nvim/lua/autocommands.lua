@@ -68,6 +68,7 @@ cmd([[
     augroup vimrc-ansible
       autocmd!
       autocmd BufNewFile,BufRead hosts setfiletype yaml.ansible
+      autocmd BufRead,BufNewFile */molecule/*.yml set filetype=yaml.ansible
       autocmd BufRead,BufNewFile */tasks/*.yml set filetype=yaml.ansible
       autocmd BufRead,BufNewFile */tasks/*.yaml set filetype=yaml.ansible
       autocmd BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
