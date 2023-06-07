@@ -19,6 +19,11 @@ print_connected_devices() {
     local count=0
     local max=$(echo "$connected_devices" | wc -l)
 
+    if [[ "$connected_devices" == "" ]]; then
+        echo "No connected devices"
+        exit 0
+    fi
+
     while read -r device; do
         local count=$((count + 1))
         echo -n "$device"
