@@ -89,7 +89,8 @@ format-connected = "<ramp-signal> <label-connected> "
 label-connected = %{A1:gnome-terminal -e nmtui &:} %essid%%{A}
 label-connected-foreground = ${colors.blue}
 
-label-disconnected = " 睊"
+label-disconnected = " 睊 "
+label-disconnected-foreground = ${colors.purple}
 
 ramp-signal-0 = " "
 ramp-signal-1 = " "
@@ -129,7 +130,7 @@ interval = 5
 label = "RAM %percentage_used%% "
 label-warn-foreground = ${colors.red}
 warn-percentage = 95
-format-prefix = "  "
+format-prefix = "   "
 format-prefix-foreground = ${colors.purple}
 
 [module/battery]
@@ -246,13 +247,13 @@ format-volume = <ramp-volume> <label-volume>
 label-volume = "%percentage%% "
 label-volume-foreground = ${colors.blue}
 
-label-muted = " ﳌ muted "
+label-muted = " ﱙ muted "
  
 label-muted-foreground = ${colors.red}
 
-ramp-volume-0 = " "
-ramp-volume-1 = " "
-ramp-volume-2 = " "
+ramp-volume-0 = "  "
+ramp-volume-1 = "  "
+ramp-volume-2 = "  "
 ramp-volume-foreground = ${colors.purple}
 
 click-right = pavucontrol
