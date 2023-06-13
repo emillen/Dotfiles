@@ -1,0 +1,31 @@
+[colors.normal]
+black = "#1d2021"
+blue = "#458588"
+cyan = "#689d6a"
+green = "#98971a"
+magenta = "#b16286"
+red = "#cc241d"
+white = "#ebdbb2"
+yellow = "#d79921"
+
+[colors.primary]
+background = "#282828"
+foreground = "#fbf1c7"
+
+[font]
+size = 9.0
+
+[font.bold]
+family = "JetbrainsMono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetbrainsMono Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "JetbrainsMono Nerd Font Mono"
+style = "Regular"
+
+[shell]
+program = "/usr/bin/fish"
