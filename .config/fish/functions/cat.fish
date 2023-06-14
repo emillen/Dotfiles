@@ -1,4 +1,3 @@
-function cat --wraps=/usr/bin/batcat --description 'alias cat=/usr/bin/batcat'
-  /usr/bin/batcat --theme gruvbox-dark $argv
-        
+function cat --wraps=/usr/bin/bat --description 'alias cat=/usr/bin/bat'
+  /usr/bin/bat --theme gruvbox-dark $argv
 end
