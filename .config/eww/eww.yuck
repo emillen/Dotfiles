@@ -1,0 +1,346 @@
+(defwindow bar
+    :geometry (
+        geometry 
+            :x "0%"
+            :y "0%"
+            :width "100%"
+            :height "10px"
+            :anchor "top center"
+    )
+   :stacking "fg"
+   :windowtype "dock"
+   :wm-ignore false
+   (bar)
+)
+
+(defwidget bar []
+    (centerbox 
+        :class "bar" 
+        :orientation "h"
+        (left)
+        (middle)
+        (right)
+    )
+)
+
+(defwidget left []
+    (box 
+        :halign "start"
+        :spacing 0
+        :space-evenly false
+        (rofi)
+        (workspaces)
+    )
+)
+
+(defwidget middle []
+    (box 
+        :space-evenly false 
+        (separator)
+        (date)
+        (separator)
+        (battery)
+        (separator)
+        (ram)
+        (separator)
+        (cpu)
+        (separator)
+    )
+)
+
+
+(defwidget right []
+    (box 
+        :orientation "h" 
+        :space-evenly false 
+        :halign "end"
+        (revealer
+            :transition "slideright"
+            :reveal {!show-powermenu}
+            (box
+            :space-evenly false
+                (printscreen)
+                (separator)
+                (brightness)
+                (separator)
+                (volume-control)
+                (separator)
+                (bluetooth)
+                (separator)
+                (wlan)
+                (separator)
+            )
+        )
+        (powermenu)
+        (separator)
+    )
+)
+
+(defwidget date []
+
+    (stat 
+        :label "" 
+        :value "${time}" 
+    )
+)
+
+(defwidget ram []
+    (button 
+        :onclick "alacritty -e htop &"
+        (stat 
+            :label "󰍛" 
+            :value "RAM ${round(EWW_RAM.used_mem_perc, 0)}%" 
+            :value-class {EWW_RAM.used_mem_perc > 90 ? "red" : ""}
+        )
+    )
+)
+
+(defwidget cpu []
+
+    (button
+        :onclick "alacritty -e htop &"
+        (stat 
+            :label "" 
+            :value "CPU ${round(EWW_CPU.avg, 0)}%" 
+            :value-class { EWW_CPU.avg > 90 ? "red" : ""} 
+        )
+    )
+)
+
+(defwidget battery []
+    (stat 
+        :label {
+            EWW_BATTERY["BAT0"].capacity > 80 ? "" :
+            EWW_BATTERY["BAT0"].capacity > 60 ? "" :
+            EWW_BATTERY["BAT0"].capacity > 40 ? "" :
+            EWW_BATTERY["BAT0"].capacity > 20 ? "" : ""
+        } 
+        :value "${EWW_BATTERY["BAT0"].capacity}%" 
+        :value-class {
+            EWW_BATTERY["BAT0"].status == "Charging" ? "green" : 
+            EWW_BATTERY["BAT0"].capacity < 20 ? "red" :
+            EWW_BATTERY["BAT0"].status == "Discharging" ? "yellow" : ""
+        }
+    )
+)
+
+(defwidget powermenu []
+    (box
+        :class "powermenu"
+        :space-evenly false
+        (button 
+            :onclick "${EWW_CMD} update show-powermenu=${show-powermenu ? false : true}" 
+            :class {show-powermenu ? "green" : "magenta"}
+
+            {show-powermenu ? "close➡ ": "⏻"}
+        )
+        (revealer
+            :transition "slideleft"
+            :reveal show-powermenu
+            (box
+                :space-evenly false
+                (button 
+                    :class "blue" 
+                    :onclick "qtile cmd-obj -o cmd -f shutdown &" 
+                    "| 󰍃 logout "
+                )
+                (button 
+                    :class "magenta" 
+                    :onclick "reboot" "| 󰜉 reboot "
+                )
+                (button 
+                    :class "red" 
+                    :onclick "poweroff" "|  shutdown"
+                )
+            )
+        )
+    )
+)
+
+(defwidget wlan []
+    (box 
+        :class "wlan"
+       (button 
+            :onclick "alacritty -e nmtui&"
+            (stat 
+                :label {
+                    wlan == "" ? "󰤭" : 
+                    wlan-strength > 80 ? "󰤨" :
+                    wlan-strength > 60 ? "󰤥" :
+                    wlan-strength > 40 ? "󰤢" :
+                    wlan-strength > 20 ? "󰤟" :
+                    wlan-strength > 0  ? "󰤯" : ""
+                }
+                :value wlan 
+                :value-class "blue"
+            )
+       )
+    )
+)
+
+(defwidget printscreen []
+    (box 
+        :class "printscreen"
+        (button 
+         :onclick "flameshot gui &"
+         " " 
+        )
+    )
+)
+
+(defwidget bluetooth []
+    (box 
+        :class "bluetooth"
+       (button 
+            :onclick "blueman-manager &"
+            (stat 
+                :label {bluetooth == "" ? "󰂲" : "󰂯"}
+                :value {bluetooth ?: ""} 
+                :value-class "blue" 
+            )
+       )
+    )
+)
+
+(defwidget separator []
+    (label :class "separator" :text "|")
+)
+
+(defwidget volume-control []
+    (eventbox 
+        :onscroll 'scripts/scroll-volume.sh {} ${EWW_CMD}'
+        :onclick  'pavucontrol &'
+        :onrightclick 'scripts/mute.sh ${EWW_CMD}'
+        (stat 
+            :value-class {volume > 100 ? "red" : "blue"} 
+            :label {
+                volume-muted == "yes"  ? "󰖁":
+                volume > 80 ? "" :
+                volume > 60 ? "󰕾" :
+                volume > 40 ? "󰖀" :
+                volume > 20 ? "" :
+                ""
+            } 
+            :value { volume-muted =="yes" ? "" : "${volume}%"} )
+    )
+)
+
+(defwidget rofi []
+    (box 
+        :class "rofi"
+        :spacing 0 
+        :space-evenly false
+        (separator)
+        (button 
+            :class "rofi-button" 
+            :onclick "rofi -show drun -modi drun -location 1 -yoffset 25 &" " "
+        )
+        (separator)
+    )
+)
+
+
+(defwidget workspaces []
+    (box 
+        :class "workspaces"
+        :orientation "h"
+        :space-evenly false
+        :halign "start"
+        (for workspace in qtile_workspaces
+            (box 
+                :class "workspace"
+                :space-evenly false
+                (button 
+                    :class {
+                        workspace.screen >= 0 ? "active" : "inactive" 
+                    } 
+                    :onclick "qtile cmd-obj -o group ${workspace.name} -f toscreen &"
+                    "${workspace.name}")
+                (separator)
+            )
+        )
+  )
+)
+
+(defwidget brightness []
+    (eventbox
+        :onscroll "scripts/scroll-brightness.sh {} ${EWW_CMD}"
+        (stat 
+            :label {
+                brightness > 90 ? "󱩖" :
+                brightness > 80 ? "󱩕" :
+                brightness > 70 ? "󱩔" :
+                brightness > 60 ? "󱩓" :
+                brightness > 50 ? "󱩒" :
+                brightness > 40 ? "󱩑" :
+                brightness > 30 ? "󱩐" :
+                brightness > 20 ? "󱩏" :
+                brightness > 10 ? "󱩎" : "󰛩"
+            }
+            :label-class "yellow" 
+            :value "${brightness}%" 
+            :value-class "blue" 
+        )
+    )
+)
+
+(defwidget stat [?label-class ?value-class label value]
+    (box 
+        :class "stat"  
+        :space-evenly false 
+        :spacing {value == "" ? 0 : 10}
+        (label  
+            :class {label-class ?: "label"} 
+            :text label)
+        (label 
+            :class value-class 
+            :text value
+        ) 
+    )
+)
+
+(defpoll brightness 
+    :interval "5s"
+    "scripts/get-brightness.sh"
+
+)
+(defpoll volume 
+    :interval "1s"
+    `pactl get-sink-volume $(pactl get-default-sink) |\
+        cut -d '/' -f4 | head -n 1 | tr -d ' ' | tr -d '%'`
+)
+
+(defpoll time 
+    :interval "10s"
+    "date '+%Y-%m-%d %H:%M' "
+)
+
+(defpoll volume-muted 
+    :interval "10s" 
+    `pactl get-sink-mute "$(pactl get-default-sink)" |\
+        tr  -d " " |\
+        cut -d : -f2`
+)
+
+(deflisten wlan  `scripts/wlan.sh`)
+(defpoll wlan-strength 
+    :interval "10s" 
+    `nmcli dev wifi list | awk '/\*/{if (NR!=1) {print $8}}'`
+)
+
+(defpoll bluetooth 
+    :interval "5s"
+    `scripts/bluetooth.sh --list-devices`
+)
+
+(deflisten 
+    i3_workspaces "scripts/i3-get-workspaces.sh"
+)
+(deflisten 
+    qtile_workspaces "scripts/qtile-get-workspaces.sh"
+)
+
+(defvar 
+    show-powermenu false
+)
+

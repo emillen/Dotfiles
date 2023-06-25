@@ -1,0 +1,93 @@
+
+$black: #1d2021;
+$gray : #282828;
+$blue: #458588;
+$cyan: #689d6a;
+$green: #98971a;
+$magenta: #b16286;
+$red: #cc241d;
+$white: #ebdbb2;
+$yellow: #d79921;
+$separator: #3c3836;
+
+* {
+  all: unset; 
+  font-weight: bold;
+  font-family: "JetBrainsMonoNl Nerd Font Propo"
+}
+
+.bar {
+  background-color: $black;
+  color: $white;
+  padding: 2px;
+  font-size: 14px;
+}
+
+.rofi-button {
+    color: $green;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.printscreen {
+    color: $magenta;
+}
+
+.blue {
+    color: $blue;
+}
+
+.green {
+    color: $green;
+}
+.yellow {
+    color: $yellow;
+}
+
+.magenta {
+    color: $magenta;
+}
+
+.red {
+    color: $red;
+}
+
+.powermenu {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.bluetooth {
+}
+
+.workspace {
+
+    &:children {
+    }
+    .active, .inactive {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .active {
+        color: $yellow;
+        background-color: $gray;
+    }
+
+}
+
+.separator {
+    color: $separator;
+}
+
+.stat {
+    margin-left: 10px;
+    margin-right: 10px;
+    .label {
+        color: $magenta;
+    }
+
+    .value {
+        color: $white;
+    }
+}
