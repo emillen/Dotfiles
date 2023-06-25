@@ -1,6 +1,6 @@
 
 gtk-can-change-accels = 1
 
-gtk-icon-theme-name = "Yaru-dark"
-gtk-theme-name = "Yaru-dark"
+gtk-icon-theme-name = "Gruvbox-Material-Dark"
+gtk-theme-name = "Numix"
 

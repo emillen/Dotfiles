@@ -12,4 +12,4 @@ configuration {
     kb-remove-to-sol: "Control+Shift+u";
 }
 
-@theme "gruvbox-dark"
+@theme "gruvbox-dark-hard-emilen"
