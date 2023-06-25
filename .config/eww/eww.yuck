@@ -233,7 +233,7 @@
         (separator)
         (button 
             :class "rofi-button" 
-            :onclick "rofi -show drun -modi drun -location 1 -yoffset 25 &" " "
+            :onclick "rofi -show drun -modi drun &" " "
         )
         (separator)
     )

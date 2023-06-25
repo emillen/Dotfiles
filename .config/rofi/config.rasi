@@ -10,6 +10,11 @@ configuration {
     kb-remove-to-eol: "Control+Shift+e";
     kb-remove-char-forward: "Control+shift+d";
     kb-remove-to-sol: "Control+Shift+u";
+    location: 1;
 }
 
 @theme "gruvbox-dark-hard-emilen"
+
+window {
+    width: 45%;
+}

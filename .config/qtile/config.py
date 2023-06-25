@@ -76,7 +76,7 @@ keys = [
     Key(
         [mod],
         "d",
-        lazy.spawn("rofi -show drun -modi drun -location 1 -yoffset 25 &")
+        lazy.spawn("rofi -show drun -modi drun &")
     ),
     Key(
         [mod],
@@ -86,7 +86,6 @@ keys = [
             rofi \
                 -modi \"clipboard:greenclip print\" \
                 -show clipboard \
-                -location 1 -yoffset 25 \
                 -run-command '{cmd}'
             """
         )
