@@ -94,7 +94,7 @@ keys = [
         [mod],
         "w",
         lazy.spawn(
-            "rofi -show window -location 1 -yoffset 25 &")
+            "rofi -show window &")
     ),
     Key(
         [mod],
