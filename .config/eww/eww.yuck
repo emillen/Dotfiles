@@ -336,8 +336,8 @@
 (deflisten 
     i3_workspaces "scripts/i3-get-workspaces.sh"
 )
-(deflisten 
-    qtile_workspaces "scripts/qtile-get-workspaces.sh"
+(defpoll
+    qtile_workspaces :interval "20s"  "scripts/qtile-get-workspaces.py"
 )
 
 (defvar 

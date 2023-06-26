@@ -330,7 +330,8 @@ def start_things_always():
     processes = [
         "setxkbmap -option caps:swapescape".split(" "),
         ["feh", "--bg-scale",
-            f"{home}/Pictures/Wallpapers/solar-system-minimal.png"]
+            f"{home}/Pictures/Wallpapers/solar-system-minimal.png"],
+        "eww reload".split(" ")
     ]
     for process in processes:
         subprocess.Popen(process)
@@ -343,10 +344,9 @@ def start_things_always():
 @hook.subscribe.group_window_add
 @hook.subscribe.current_screen_change
 @hook.subscribe.changegroup
-def register_workspace_switch():
-    workspace_file = expanduser('~/.cache/workspaces')
-    with open(workspace_file, 'a', encoding="utf-8") as file:
-        print("workspace change", file=file)
+def register_workspace_switch(*args, **kwargs):
+    python_script = expanduser('~/.config/eww/scripts/qtile-get-workspaces.py')
+    subprocess.Popen(["python3", python_script, "--direct-update"])
 
 
 auto_minimize = True
