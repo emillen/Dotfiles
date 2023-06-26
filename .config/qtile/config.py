@@ -217,6 +217,12 @@ keys = [
         lazy.shutdown(),
         desc="Shutdown Qtile"
     ),
+    Key(
+        [mod, "Shift", "Control"],
+        "l",
+        lazy.spawn("dm-tool lock"),
+        desc="Grow window up"
+    ),
 ]
 
 groups = [Group(i) for i in "123456789"]
