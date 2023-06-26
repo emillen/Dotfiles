@@ -220,7 +220,7 @@ keys = [
     Key(
         [mod, "Shift", "Control"],
         "l",
-        lazy.spawn("dm-tool lock"),
+        lazy.spawn("light-locker-command -l"),
         desc="Grow window up"
     ),
 ]
@@ -324,6 +324,7 @@ def start_things_once():
         "eww open bar --screen=1".split(" "),
         "greenclip daemon".split(" "),
         f"picom -b --config {home}/.config/picom.conf".split(" "),
+        "light-locker".split(" "),
     ]
     for process in processes:
         subprocess.Popen(process)
