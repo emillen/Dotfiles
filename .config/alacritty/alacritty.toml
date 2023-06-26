@@ -29,3 +29,7 @@ style = "Regular"
 
 [shell]
 program = "/usr/bin/fish"
+
+[window.padding]
+x = 3
+y = 3
