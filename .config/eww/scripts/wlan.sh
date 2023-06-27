@@ -1,7 +1,12 @@
 #!/bin/bash
 
 get_active_network() {
-    nmcli connection show --active | grep -Ev "loopback|NAME" | tr -s " " | cut -d " " -f1
+    nmcli connection show --active \
+        | grep      --extended-regexp "wifi|ethernet" \
+        | tr        --squeeze-repeats " " \
+        | cut       --delimiter " " --fields 1 \
+        | tr "\n" "," \
+        | sed       --expression 's/,$//g'
 }
 
 
@@ -16,4 +21,3 @@ nmcli monitor 2>/dev/null | while read -r line; do
         last="$new"
     fi
 done
-
