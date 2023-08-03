@@ -1,0 +1,32 @@
+#!/bin/bash
+# :vim setfiletype sh:
+
+main() {
+    local year=$(date +%Y)
+    local month=$(date +%m)
+    local day=$(date +%d)
+
+    local directory=~/notes/$year/$month/$day
+
+    local positional=()
+
+    if [[ -z "$1" ]]; then
+        nvim ~/notes
+        exit 1
+    fi
+
+    local title="$@"
+    local title_without_spaces="${title// /_}"
+    local filepath="$directory/$year$month$day-$title_without_spaces.md"
+
+    mkdir -p "$directory"
+    touch "$filepath"
+
+    echo "# $title" >> "$filepath"
+    nvim "$directory"
+}
+
+
+if [[ "$BASH_SOURCE" == "$0" ]]; then
+    main "$@"
+fi
