@@ -5,7 +5,7 @@ import subprocess
 from os.path import expanduser
 from libqtile import bar, layout, hook
 
-from libqtile.config import Click, Drag, Group, Key, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.command.client import CommandClient
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -337,7 +337,7 @@ def start_things_always():
     processes = [
         "setxkbmap -option caps:swapescape".split(" "),
         ["feh", "--bg-scale",
-            f"{home}/Pictures/Wallpapers/solar-system-minimal.png"],
+            f"{home}/Pictures/Wallpapers/gruvbox-rocket.png"],
         "eww reload".split(" ")
     ]
     for process in processes:
