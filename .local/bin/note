@@ -23,7 +23,7 @@ main() {
     touch "$filepath"
 
     echo "# $title" >> "$filepath"
-    nvim "$directory"
+    nvim "$filepath"
 }
 
 
