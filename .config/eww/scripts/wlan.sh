@@ -1,12 +1,11 @@
 #!/bin/bash
 
 get_active_network() {
-    nmcli connection show --active \
-        | grep      --extended-regexp "wifi|ethernet" \
-        | tr        --squeeze-repeats " " \
-        | cut       --delimiter " " --fields 1 \
-        | tr "\n" "," \
-        | sed       --expression 's/,$//g'
+    nmcli --terse connection show --active                   \
+        | grep               --extended-regexp "wireless"    \
+        | cut                --delimiter ":" --fields 1      \
+        | tr "\n" ","                                        \
+        | sed                --expression 's/,$//g'
 }
 
 
