@@ -67,6 +67,8 @@
                 (separator)
                 (bluetooth)
                 (separator)
+                (vpn)
+                (separator)
                 (wlan)
                 (separator)
             )
@@ -297,6 +299,21 @@
             :text value
         ) 
     )
+)
+
+(defwidget vpn []
+    (stat
+        :label "VPN"
+        :value "${vpn}"
+        :value-class {
+            vpn == "Disconnected" ? "red" : "blue"
+        }
+    )
+)
+
+(defpoll vpn 
+    :interval "5s"
+    "scripts/get-vpn-status.sh"
 )
 
 (defpoll brightness 
