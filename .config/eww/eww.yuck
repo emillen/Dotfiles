@@ -302,12 +302,15 @@
 )
 
 (defwidget vpn []
-    (stat
-        :label "VPN"
-        :value "${vpn}"
-        :value-class {
-            vpn == "Disconnected" ? "red" : "blue"
-        }
+    (button
+        :onclick "alacritty -e scripts/connect-vpn.sh &"
+        (stat
+            :label "VPN"
+            :value "${vpn}"
+            :value-class {
+                vpn == "Disconnected" ? "red" : "blue"
+            }
+        )
     )
 )
 
