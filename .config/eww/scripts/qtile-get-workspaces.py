@@ -10,7 +10,7 @@ items = []
 
 
 def should_update():
-    return any([x == "--direct-update" for x in sys.argv])
+    return any(x == "--direct-update" for x in sys.argv)
 
 
 class SetEncoder(json.JSONEncoder):
@@ -20,7 +20,7 @@ class SetEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 
-for name, item in command_client.call("groups").items():
+for name, item in command_client.call("get_groups").items():
     if item["screen"] is None:
         item["screen"] = -1
     if item["screen"] >= 0 or item["focus"] is not None:
