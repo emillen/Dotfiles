@@ -163,7 +163,7 @@
     (box 
         :class "wlan"
        (button 
-            :onclick "alacritty -e nmtui&"
+            :onclick "alacritty -e scripts/connect-wifi.sh &"
             (stat 
                 :label {
                     wlan == "" ? "󰤭" : 
