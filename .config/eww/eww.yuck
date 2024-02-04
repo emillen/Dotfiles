@@ -304,6 +304,7 @@
 (defwidget vpn []
     (button
         :onclick "alacritty -e scripts/connect-vpn.sh &"
+        :onrightclick "scripts/toggle-vpn-killswitch.sh"
         (stat
             :label "VPN"
             :value "${vpn}"
@@ -315,7 +316,7 @@
 )
 
 (defpoll vpn 
-    :interval "5s"
+    :interval "1s"
     "scripts/get-vpn-status.sh"
 )
 
