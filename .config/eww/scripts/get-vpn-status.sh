@@ -10,9 +10,9 @@ print_vpn_connection_status () {
     hostname="$(echo "$status" | grep "Hostname" | cut -d ":" -f2 | tr -d " " | sed -e "s/\.nordvpn\.com//")"
 
     if [[ $connection == "Disconnected" ]]; then
-        echo "$connection (Killswitch $killswitch_status)"
+        echo "$connection (KS $killswitch_status)"
     else
-        echo "$hostname (Killswitch $killswitch_status)"
+        echo "$hostname (KS $killswitch_status)"
     fi
 }
 
