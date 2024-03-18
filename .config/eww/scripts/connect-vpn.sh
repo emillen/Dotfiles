@@ -21,6 +21,14 @@ main() {
     fi
 
     nordvpn connect $country $city
+
+    if [[ $? -eq 1 ]]; then
+        nordvpn set killswitch disabled
+        nordvpn login
+        sleep 30000
+    else
+        nordvpn set killswitch enabled
+    fi
 }
 
 if [[ "$BASH_SOURCE" == "$0" ]]; then
