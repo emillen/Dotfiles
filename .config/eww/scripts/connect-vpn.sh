@@ -10,6 +10,7 @@ main() {
     fi
 
     if [[ $country == "Disconnect" ]]; then
+        nordvpn set killswitch disabled
         nordvpn disconnect
         exit 0;
     fi
@@ -32,5 +33,5 @@ main() {
 }
 
 if [[ "$BASH_SOURCE" == "$0" ]]; then
-    main
+    main "$@"
 fi
