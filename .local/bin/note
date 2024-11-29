@@ -1,5 +1,5 @@
 #!/bin/bash
-# :vim setfiletype sh:
+# vim: set ft=bash:
 
 main() {
     local year=$(date +%Y)
