@@ -5,7 +5,7 @@ import subprocess
 from os.path import expanduser
 from libqtile import bar, layout, hook
 
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.command.client import CommandClient
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
