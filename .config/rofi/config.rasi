@@ -13,7 +13,7 @@ configuration {
     location: 1;
 }
 
-@theme ".config/rofi/gruvbox-dark-hard-emilen.rasi"
+@theme "/home/emilen/.config/rofi/gruvbox-dark-hard-emilen.rasi"
 
 window {
     width: 45%;

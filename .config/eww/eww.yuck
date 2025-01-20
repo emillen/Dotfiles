@@ -1,4 +1,4 @@
-(defwindow bar
+(defwindow bar0
     :geometry (
         geometry 
             :x "0%"
@@ -10,26 +10,71 @@
    :stacking "fg"
    :windowtype "dock"
    :wm-ignore false
-   (bar)
+   (bar :display "${bar0-screen}")
 )
 
-(defwidget bar []
+(defwindow bar1
+    :geometry (
+        geometry 
+            :x "0%"
+            :y "0%"
+            :width "100%"
+            :height "10px"
+            :anchor "top center"
+    )
+   :stacking "fg"
+   :windowtype "dock"
+   :wm-ignore false
+   (bar :display "${bar1-screen}")
+)
+
+(defwindow bar2
+    :geometry (
+        geometry 
+            :x "0%"
+            :y "0%"
+            :width "100%"
+            :height "10px"
+            :anchor "top center"
+    )
+   :stacking "fg"
+   :windowtype "dock"
+   :wm-ignore false
+   (bar :display "${bar2-screen}")
+)
+
+(defwindow bar3
+    :geometry (
+        geometry 
+            :x "0%"
+            :y "0%"
+            :width "100%"
+            :height "10px"
+            :anchor "top center"
+    )
+   :stacking "fg"
+   :windowtype "dock"
+   :wm-ignore false
+   (bar :display "${bar3-screen}")
+)
+
+(defwidget bar [display]
     (centerbox 
         :class "bar" 
         :orientation "h"
-        (left)
+        (left :display display)
         (middle)
         (right)
     )
 )
 
-(defwidget left []
+(defwidget left [display]
     (box 
         :halign "start"
         :spacing 0
         :space-evenly false
         (rofi)
-        (workspaces)
+        (workspaces :display display)
     )
 )
 
@@ -242,21 +287,22 @@
 )
 
 
-(defwidget workspaces []
+(defwidget workspaces [display]
     (box 
         :class "workspaces"
         :orientation "h"
         :space-evenly false
         :halign "start"
-        (for workspace in qtile_workspaces
+        (for workspace in i3_workspaces
             (box 
+                :visible {workspace.output == display ? true : false}
                 :class "workspace"
                 :space-evenly false
                 (button 
                     :class {
-                        workspace.screen >= 0 ? "active" : "inactive" 
+                        workspace.visible == true ? "active" : "inactive" 
                     } 
-                    :onclick "qtile cmd-obj -o group ${workspace.name} -f toscreen &"
+                    :onclick "i3-msg workspace ${workspace.name} &"
                     "${workspace.name}")
                 (separator)
             )
@@ -368,3 +414,16 @@
     show-powermenu false
 )
 
+(defvar 
+    bar0-screen ""
+)
+
+(defvar 
+    bar1-screen ""
+)
+(defvar 
+    bar2-screen ""
+)
+(defvar 
+    bar3-screen ""
+)

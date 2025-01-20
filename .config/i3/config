@@ -1,5 +1,5 @@
-set $mod Mod1
-set $mod2 Mod4
+set $mod Mod4
+set $mod2 Mod1
 
 # add some space in begginging of titles
 for_window [class=".*"] title_format " %title"
@@ -90,6 +90,11 @@ bindsym $mod+minus scratchpad show
 # navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+l move workspace to output right
+bindsym $mod+Ctrl+h move workspace to output left
+
+bindsym $mod+Tab workspace back_and_forth
+
 
 # workspaces
 set $ws1 1
@@ -100,6 +105,7 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
+set $ws9 9
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -110,6 +116,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+Shift+1 move container to workspace $ws1
@@ -120,6 +127,7 @@ bindsym $mod+Ctrl+Shift+5 move container to workspace $ws5
 bindsym $mod+Ctrl+Shift+6 move container to workspace $ws6
 bindsym $mod+Ctrl+Shift+7 move container to workspace $ws7
 bindsym $mod+Ctrl+Shift+8 move container to workspace $ws8
+bindsym $mod+Ctrl+Shift+9 move container to workspace $ws9
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -130,6 +138,7 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
@@ -274,7 +283,7 @@ exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 exec xbindkeys -f ~/.xbindkeysrc
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/eww/launch.sh
 exec --no-startup-id /usr/lib/gsd-xsettings
 
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/linux-gruvbox.jpg
@@ -294,4 +303,4 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
-exec_always --no-startup-id $HOME/.config/i3/place-workspaces.sh
+#exec_always --no-startup-id $HOME/.config/i3/place-workspaces.sh
