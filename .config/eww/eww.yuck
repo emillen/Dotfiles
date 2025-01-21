@@ -300,7 +300,7 @@
                 :space-evenly false
                 (button 
                     :class {
-                        workspace.visible == true ? "active" : "inactive" 
+                        workspace.visible == true ? workspace.focused ? "active" : "visible" : "inactive"
                     } 
                     :onclick "i3-msg workspace ${workspace.name} &"
                     "${workspace.name}")

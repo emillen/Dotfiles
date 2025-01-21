@@ -64,13 +64,17 @@ $separator: #3c3836;
 
     &:children {
     }
-    .active, .inactive {
+    .active, .inactive, .visible {
         padding-left: 25px;
         padding-right: 25px;
     }
 
     .active {
         color: $yellow;
+        background-color: $gray;
+    }
+
+    .visible {
         background-color: $gray;
     }
 
