@@ -55,6 +55,14 @@ cmd([[
     augroup END
 ]])
 
+-- typescript
+cmd([[
+    augroup vimrc-typescript
+      autocmd!
+      autocmd FileType typescript setl tabstop=2|setl shiftwidth=2|setl expandtab softtabstop=2
+    augroup END
+]])
+
 -- set bats-files as shell files
 cmd([[
     augroup bats

@@ -114,3 +114,10 @@ map("n", "<leader>gr", "<cmd>lua require('gitsigns').reset_hunk()<CR>")
 map("n", "<leader>gs", "<cmd>lua require('gitsigns').stage_hunk()<CR>")
 map("n", "<leader>gR", "<cmd>lua require('gitsigns').reset_buffer()<CR>")
 map("n", "<leader>gS", "<cmd>lua require('gitsigns').stage_buffer()<CR>")
+
+-- Avante
+map("n", "<leader>aa", ":AvanteChat<CR>")
+map("n", "<leader>ar", ":AvanteRefresh<CR>")
+map("n", "<leader>af", ":AvanteFocus<CR>")
+map("n", "<leader>at", ":AvanteToggle<CR>")
+map("v", "<leader>ae", ":AvanteEdit<CR>")

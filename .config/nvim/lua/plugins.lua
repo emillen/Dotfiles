@@ -27,10 +27,10 @@ Plug("Raimondi/delimitMate")
 Plug("Yggdroot/indentLine")
 Plug("editor-bootstrap/vim-bootstrap-updater")
 Plug("tpope/vim-rhubarb")
-Plug("github/copilot.vim")
+-- Plug("github/copilot.vim")
 
 Plug("nvim-lua/plenary.nvim")
-Plug("jose-elias-alvarez/null-ls.nvim")
+Plug("nvimtools/none-ls.nvim")
 Plug("neovim/nvim-lspconfig")
 Plug("hrsh7th/cmp-nvim-lsp")
 Plug("hrsh7th/cmp-buffer")
@@ -47,7 +47,7 @@ Plug("neovim/nvim-lspconfig")
 Plug("numToStr/Comment.nvim")
 
 Plug("nvim-lua/plenary.nvim")
-Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
+Plug("nvim-telescope/telescope.nvim")
 
 Plug("nvim-tree/nvim-web-devicons")
 Plug("nvim-tree/nvim-tree.lua")
@@ -58,7 +58,12 @@ Plug("rodjek/vim-puppet")
 
 Plug("stevearc/dressing.nvim")
 Plug("ziontee113/icon-picker.nvim")
+Plug("MunifTanjim/nui.nvim")
+Plug("MeanderingProgrammer/render-markdown.nvim")
+Plug("HakonHarnes/img-clip.nvim")
 
+Plug("zbirenbaum/copilot.lua")
+Plug("yetone/avante.nvim", { branch = "main", ["do"] = "make" })
 vim.g.make = "gmake"
 if vim.fn.exists("make") then
 	vim.g.make = "make"
