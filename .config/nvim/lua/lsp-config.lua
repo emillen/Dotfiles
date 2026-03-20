@@ -73,42 +73,42 @@ local lsp_flags = {
 	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 150,
 }
-require("lspconfig")["pyright"].setup({
+vim.lsp.config("pyright", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
-require("lspconfig")["ts_ls"].setup({
+vim.lsp.config("ts_ls", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
-require("lspconfig")["gopls"].setup({
+vim.lsp.config("gopls", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
--- require("lspconfig")["yamlls"].setup({
+-- vim.lsp.config("yamlls", {
 -- 	on_attach = on_attach,
 -- 	flags = lsp_flags,
 -- 	capabilities = capabilities,
 -- })
-require("lspconfig")["marksman"].setup({
+vim.lsp.config("marksman", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
-require("lspconfig")["jsonls"].setup({
+vim.lsp.config("jsonls", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
-require("lspconfig")["ansiblels"].setup({
+vim.lsp.config("ansiblels", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
-require("lspconfig")["rust_analyzer"].setup({
+vim.lsp.config("rust_analyzer", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
@@ -124,24 +124,24 @@ require("lspconfig")["rust_analyzer"].setup({
 		},
 	},
 })
-require("lspconfig")["ruby_lsp"].setup({
+vim.lsp.config("ruby_lsp", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
 	enabledFeatures = { "codeActions", "definition" },
 	thingies = {},
 })
-require("lspconfig")["puppet"].setup({
+vim.lsp.config("puppet", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
-require("lspconfig")["bashls"].setup({
+vim.lsp.config("bashls", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
-require("lspconfig")["lua_ls"].setup({
+vim.lsp.config("lua_ls", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
@@ -155,7 +155,7 @@ require("lspconfig")["lua_ls"].setup({
 	},
 })
 
-require("lspconfig")["vuels"].setup({
+vim.lsp.config("vuels", {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
