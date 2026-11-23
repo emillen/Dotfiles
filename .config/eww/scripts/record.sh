@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Record speech with ostt in a popup and copy the transcription to the clipboard.
+# Record speech with ostt in a popup, copy the transcription to the clipboard and
+# paste it into the window that was focused when the recording started.
 # Running it again while recording finishes the recording.
 # Arguments: the eww command, used to color the button while the popup is up.
 #
@@ -12,6 +13,25 @@ EWW=("${@:-eww}")
 
 # Already recording: tell ostt to stop and transcribe
 pkill -USR1 -fx "$OSTT -o $OUT" && exit
+
+# Paste the clipboard into window $1, but only if it really got focus back
+paste_into() {
+    i3-msg -q "[id=$1] focus" >/dev/null 2>&1 || return
+
+    for _ in {1..20}; do
+        [[ "$(xdotool getactivewindow 2>/dev/null)" == "$1" ]] && break
+        sleep 0.05
+    done
+    sleep 0.2
+    [[ "$(xdotool getactivewindow 2>/dev/null)" == "$1" ]] || return
+
+    case "$(xprop -id "$1" WM_CLASS 2>/dev/null)" in
+        *Alacritty*) xdotool key --clearmodifiers ctrl+shift+v ;;
+        *) xdotool key --clearmodifiers ctrl+v ;;
+    esac
+}
+
+PREVIOUS=$(xdotool getactivewindow 2>/dev/null)
 
 trap '"${EWW[@]}" update record-color=magenta' EXIT
 "${EWW[@]}" update record-color=green
@@ -31,5 +51,6 @@ alacritty --class ostt-popup -e "$OSTT" -o "$OUT"
 if [[ -s "$OUT" ]]; then
     printf '%s' "$(cat "$OUT")" | xclip -selection clipboard -in >/dev/null 2>&1
     notify-send "Copied to clipboard" "$(cat "$OUT")"
+    [[ -n "$PREVIOUS" ]] && paste_into "$PREVIOUS"
 fi
 rm -f "$OUT"
