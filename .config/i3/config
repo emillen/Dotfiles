@@ -11,6 +11,9 @@ new_float normal
 
 for_window [class=.*] border pixel 2
 
+# ostt speech-to-text popup
+for_window [class="^ostt-popup$"] floating enable, resize set 500 200, move position center
+
 hide_edge_borders none
 
 floating_modifier $mod
@@ -142,6 +145,9 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
+
+# record speech to clipboard (press again to finish)
+bindsym $mod+r exec --no-startup-id $HOME/.config/eww/scripts/record.sh
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

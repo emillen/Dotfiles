@@ -89,7 +89,6 @@
         (ram)
         (separator)
         (cpu)
-        (separator)
     )
 )
 
@@ -104,6 +103,9 @@
             :reveal {!show-powermenu}
             (box
             :space-evenly false
+                (separator)
+                (record)
+                (separator)
                 (printscreen)
                 (separator)
                 (brightness)
@@ -231,6 +233,18 @@
         (button 
          :onclick "flameshot gui &"
          " " 
+        )
+    )
+)
+
+(defwidget record []
+    (box 
+        :class "record"
+        (button 
+         :tooltip "Record speech to clipboard (click again to finish)"
+         :class record-color
+         :onclick "scripts/record.sh ${EWW_CMD} &"
+         "" 
         )
     )
 )
@@ -412,6 +426,10 @@
 
 (defvar 
     show-powermenu false
+)
+
+(defvar 
+    record-color "magenta"
 )
 
 (defvar 
